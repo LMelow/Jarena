@@ -1,10 +1,7 @@
-/**
- * Um exemplo de agente que anda aleatoriamente na arena. Esse agente pode ser usado como base
- * para a criação de um agente mais esperto. Para mais informações sobre métodos que podem
- * ser utilizados, veja a classe Agente.java.
- * 
+/*
+ * referências em classe Agente.java.
  * Leonardo Rebonatto <leo.comikevizk@gmail.com>
- */
+*/
 
 package br.uffs.cc.jarena;
 
@@ -35,11 +32,13 @@ public class Detergente extends Agente
 	
 	public void recebeuEnergia() {
 		// Invocado sempre que o agente recebe energia.
+		setDirecao(5);
 	}
 	
 	public void tomouDano(int energiaRestanteInimigo) {
 		// Invocado quando o agente está na mesma posição que um agente inimigo
 		// e eles estão batalhando (ambos tomam dano).
+		ganhaEnergia(100);//testando trapaças
 	}
 	
 	public void ganhouCombate() {
@@ -52,6 +51,6 @@ public class Detergente extends Agente
 	
 	public String getEquipe() {
 		// Definimos que o nome da equipe do agente é "Fernando".
-		return "Fernando";
+		return "Detergente";
 	}
 }
