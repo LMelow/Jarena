@@ -1,14 +1,26 @@
 /*
  * referências em classe Agente.java.
  * Leonardo Rebonatto <leo.comikevizk@gmail.com>
- * 
+ * (Pegar infos com ___get___ e configurar com ____set____)
+ *  getDirecao() getInimigoJuntoComigo() getEquipe()
  * Funções disponiveis:
  * setDirecao(1-2-3-4-5-geraDirecaoAleatoria());
  * public static final int DIREITA					= 1;
  * public static final int ESQUERDA					= 2;
  * public static final int CIMA						= 3;
  * public static final int BAIXO					= 4;
- * public static final int NENHUMA_DIRECAO			= 5;	
+ * public static final int NENHUMA_DIRECAO			= 5;
+  
+● boolean podeMoverPara(int direcao)
+● boolean gastaEnergia(int quanto)
+● boolean isParado()
+● void para()
+● int geraDirecaoAleatoria()
+● boolean podeDividir()
+● void setDirecao(int direcao)
+● boolean divide()
+● void morre()
+● void enviaMensagem(String msg)	
 */
 
 package br.uffs.cc.jarena;
@@ -17,17 +29,21 @@ public class Detergente extends Agente
 {
 	public Detergente(Integer x, Integer y, Integer energia) {
 		super(x, y, energia);
-		setDirecao(geraDirecaoAleatoria()); 
+		setDirecao(BAIXO); 
 	}
 
 	public void pensa() {
 		// Se não conseguimos nos mover para a direção atual, quer dizer
 		// que chegamos no final do mapa ou existe algo bloqueando nosso
 		// caminho.
-		//##se parou de receer energia setar direção de onde encontrou o cogumelo##
-		if (isParado()){
-			setDirecao(geraDirecaoAleatoria());
+		//##se parou de receber energia setar direção de onde encontrou o cogumelo##
+		System.out.println(getEnergia);
+		if (getEnergia() < 800){
+			setDirecao(DIREITA);
+
 		}
+		
+
 		if(!podeMoverPara(getDirecao())) {
 			// Como não conseguimos nos mover, vamos escolher uma direção
 			// nova.
@@ -47,6 +63,7 @@ public class Detergente extends Agente
 	public void recebeuEnergia() {
 		// Invocado sempre que o agente recebe energia.
 		para();
+		
 	
 	}
 	
@@ -64,6 +81,7 @@ public class Detergente extends Agente
 	
 	public void ganhouCombate() {
 		// Invocado se estamos batalhando e nosso inimigo morreu.
+	
 	}
 	
 	public void recebeuMensagem(String msg) {
