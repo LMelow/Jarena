@@ -1,3 +1,5 @@
+DETERGENTE.JAVA
+
 # Jarena
 A game approach to teaching OPP and Java. It is a battle arena where student-developed agents fight each other in order to survive. The last team to be eliminated from the arena wins the challenge.
 
