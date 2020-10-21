@@ -9,7 +9,7 @@ public class Detergente extends Agente
 {
 	public Detergente(Integer x, Integer y, Integer energia) {
 		super(x, y, energia);
-		setDirecao(geraDirecaoAleatoria());
+		setDirecao(BAIXO);
 	}
 	
 	public void pensa() {
@@ -26,19 +26,24 @@ public class Detergente extends Agente
 		// do agente é maior que 400, nos dividimos. O agente filho terá a metade
 		// da nossa energia atual.
 		if(podeDividir() && getEnergia() >= 800) {
-			divide();
+		//divide();
 		}
 	}
 	
 	public void recebeuEnergia() {
 		// Invocado sempre que o agente recebe energia.
-		setDirecao(5);
+		setDirecao(NENHUMA_DIRECAO);
 	}
 	
 	public void tomouDano(int energiaRestanteInimigo) {
 		// Invocado quando o agente está na mesma posição que um agente inimigo
 		// e eles estão batalhando (ambos tomam dano).
-		ganhaEnergia(100);//testando trapaças
+		//ganhaEnergia(100);//testando trapaças
+		if (energiaRestanteInimigo>=400){
+			setDirecao(geraDirecaoAleatoria());
+		}else{
+			setDirecao(NENHUMA_DIRECAO);	
+		}
 	}
 	
 	public void ganhouCombate() {
@@ -50,7 +55,7 @@ public class Detergente extends Agente
 	}
 	
 	public String getEquipe() {
-		// Definimos que o nome da equipe do agente é "Fernando".
+		// O nome da equipe do agente é:
 		return "Detergente";
 	}
 }
