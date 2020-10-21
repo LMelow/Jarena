@@ -20,6 +20,7 @@ public class Detergente extends Agente
 			// Como não conseguimos nos mover, vamos escolher uma direção
 			// nova.
 			setDirecao(geraDirecaoAleatoria());
+		
 		}
 		
 		// Se o agente conseguie se dividir (tem energia) e se o total de energia
@@ -38,7 +39,10 @@ public class Detergente extends Agente
 	public void tomouDano(int energiaRestanteInimigo) {
 		// Invocado quando o agente está na mesma posição que um agente inimigo
 		// e eles estão batalhando (ambos tomam dano).
-		//ganhaEnergia(1000);//testando trapaças
+		if (getEnergia()>energiaRestanteInimigo){//teste de combate
+			setDirecao(5);
+		}
+		
 	}
 	
 	public void ganhouCombate() {
